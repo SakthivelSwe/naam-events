@@ -7,7 +7,7 @@ NaamEvent is a full-stack event management platform with a professional public w
 - Frontend: Next.js App Router, React, TypeScript, Tailwind CSS
 - Backend: Spring Boot, Spring Security, Spring Data JPA, Validation
 - Database: PostgreSQL
-- Media: MinIO object storage
+- Media: Supabase Storage
 - Deployment targets: Vercel, Render, Supabase
 
 ## Project Structure
@@ -40,7 +40,6 @@ render.yaml
   - `GET /api/admin/bookings`
   - `GET /api/admin/contacts`
   - `POST /api/admin/uploads`
-  - `GET /api/uploads/{objectName}`
 - JWT-protected admin access
 - Seeded starter data for services and gallery
 
@@ -76,6 +75,7 @@ The frontend runs on `http://localhost:3000`.
 - `NEXT_PUBLIC_PHONE_NUMBER`
 - `NEXT_PUBLIC_COMPANY_ADDRESS`
 - `NEXT_PUBLIC_INSTAGRAM_URL`
+- `NEXT_TELEMETRY_DISABLED`
 
 ### Backend
 
@@ -86,12 +86,12 @@ The frontend runs on `http://localhost:3000`.
 - `JWT_SECRET`
 - `ADMIN_USERNAME`
 - `ADMIN_PASSWORD`
-- `MINIO_ENDPOINT`
-- `MINIO_HOSTPORT`
-- `MINIO_SECURE`
-- `MINIO_ACCESS_KEY`
-- `MINIO_SECRET_KEY`
-- `MINIO_BUCKET_NAME`
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `SUPABASE_STORAGE_BUCKET`
+
+For local development you can use the direct Supabase database host with `DB_USERNAME=postgres`.
+For Render deployment, use the Supabase session pooler host and the pooler username, which looks like `postgres.<project-ref>`.
 
 ## Database
 

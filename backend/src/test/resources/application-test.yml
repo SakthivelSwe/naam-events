@@ -17,10 +17,7 @@ admin:
   username: admin
   password: admin123
 
-minio:
-  endpoint: http://localhost:9000
-  hostport:
-  secure: false
-  access-key: admin
-  secret-key: admin123
-  bucket-name: naamevent-test
+supabase:
+  url: https://test-project.supabase.co
+  service-role-key: test-service-role-key
+  storage-bucket: naamevent-test

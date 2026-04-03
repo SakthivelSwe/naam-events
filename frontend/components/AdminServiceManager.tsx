@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
-import { createService, deleteService, getAdminServices, updateService, uploadToMinio } from "@/lib/api";
+import { createService, deleteService, getAdminServices, updateService, uploadToStorage } from "@/lib/api";
 import { getAdminToken } from "@/lib/admin-auth";
 import type { ServiceItem } from "@/lib/types";
 
@@ -72,9 +72,9 @@ export function AdminServiceManager() {
     try {
       setStatus("Uploading image...");
       const token = getAdminToken();
-      const imageUrl = await uploadToMinio(token, file);
+      const imageUrl = await uploadToStorage(token, file);
       setForm((current) => ({ ...current, imageUrl }));
-      setStatus("Image uploaded to MinIO successfully.");
+      setStatus("Image uploaded to Supabase Storage successfully.");
     } catch (error) {
       setStatus(error instanceof Error ? error.message : "Image upload failed.");
     }
@@ -95,7 +95,7 @@ export function AdminServiceManager() {
             void handleUpload(file);
           }
         }} />
-        <p className="text-xs text-slate-500">Upload directly to MinIO, or paste an existing image URL.</p>
+        <p className="text-xs text-slate-500">Upload directly to Supabase Storage, or paste an existing image URL.</p>
         <div className="flex gap-3">
           <button type="submit" disabled={saving} className="button-primary flex-1">
             {saving ? "Saving..." : editingId ? "Update Service" : "Create Service"}

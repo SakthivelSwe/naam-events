@@ -160,7 +160,7 @@ export function getAdminContacts(token: string) {
   });
 }
 
-export async function uploadToMinio(token: string, file: File) {
+export async function uploadToStorage(token: string, file: File) {
   const formData = new FormData();
   formData.append("file", file);
 
@@ -178,7 +178,7 @@ export async function uploadToMinio(token: string, file: File) {
 
   const payload = (await response.json()) as ApiResponse<UploadResult>;
   if (!payload.success || !payload.data?.imageUrl) {
-    throw new Error(payload.message || "MinIO did not return an image URL");
+    throw new Error(payload.message || "Storage did not return an image URL");
   }
 
   return payload.data.imageUrl;
