@@ -1,0 +1,57 @@
+services:
+  - type: web
+    name: naamevent-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /api/health
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        value: postgres
+      - key: DB_PASSWORD
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: MINIO_HOSTPORT
+        fromService:
+          type: pserv
+          name: naamevent-minio
+          property: hostport
+      - key: MINIO_SECURE
+        value: "false"
+      - key: MINIO_ACCESS_KEY
+        fromService:
+          type: pserv
+          name: naamevent-minio
+          envVarKey: MINIO_ROOT_USER
+      - key: MINIO_SECRET_KEY
+        fromService:
+          type: pserv
+          name: naamevent-minio
+          envVarKey: MINIO_ROOT_PASSWORD
+      - key: MINIO_BUCKET_NAME
+        value: naameventgudiyattam
+
+  - type: pserv
+    name: naamevent-minio
+    runtime: image
+    image:
+      url: quay.io/minio/minio:RELEASE.2025-06-13T11-33-47Z
+    dockerCommand: server /data --address ":10000" --console-address ":10001"
+    disk:
+      name: naamevent-minio-data
+      mountPath: /data
+      sizeGB: 10
+    envVars:
+      - key: MINIO_ROOT_USER
+        sync: false
+      - key: MINIO_ROOT_PASSWORD
+        sync: false

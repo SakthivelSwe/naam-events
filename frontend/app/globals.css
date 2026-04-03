@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #334155;
+  --primary: #1e293b;
+  --accent: #c9a227;
+  --muted: #f8fafc;
+  --border: #cbd5e1;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+select,
+textarea {
+  outline: none;
+}
+
+.container-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.section-space {
+  @apply py-16 sm:py-20;
+}
+
+.card-surface {
+  @apply rounded-2xl border border-brand-border bg-white shadow-card;
+}
+
+.field {
+  @apply w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-sm text-brand-text transition focus:border-brand-accent;
+}
+
+.button-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800;
+}
+
+.button-secondary {
+  @apply inline-flex items-center justify-center rounded-full border border-brand-accent px-6 py-3 text-sm font-semibold text-brand-primary transition hover:bg-amber-50;
+}
+

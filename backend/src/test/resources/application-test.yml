@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:naamevent;MODE=PostgreSQL;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+
+app:
+  cors-origin: http://localhost:3000
+  jwt-secret: dGVzdC1uYWFtZXZlbnQtand0LXNlY3JldC1tdXN0LWJlLWxvbmctZW5vdWdo
+
+admin:
+  username: admin
+  password: admin123
+
+minio:
+  endpoint: http://localhost:9000
+  hostport:
+  secure: false
+  access-key: admin
+  secret-key: admin123
+  bucket-name: naamevent-test
