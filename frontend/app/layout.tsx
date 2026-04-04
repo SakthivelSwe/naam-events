@@ -16,7 +16,10 @@ const serif = Quicksand({
 
 export const metadata: Metadata = {
   title: "NaamEvent | Professional Event Management",
-  description: "NaamEvent delivers thoughtful wedding, social, and corporate event management with a focus on trust, clarity, and flawless execution."
+  description: "NaamEvent delivers thoughtful wedding, social, and corporate event management with a focus on trust, clarity, and flawless execution.",
+  icons: {
+    icon: "/logo.jpeg"
+  }
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
