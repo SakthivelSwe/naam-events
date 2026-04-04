@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "NaamEvent | Professional Event Management",
   description: "NaamEvent delivers thoughtful wedding, social, and corporate event management with a focus on trust, clarity, and flawless execution.",
   icons: {
-    icon: "/logo.png"
+    icon: "/logo-ai.png"
   }
 };
 
