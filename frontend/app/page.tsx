@@ -26,8 +26,8 @@ const BRAND_SERVICES = [
   { id: 2, name: "Chocolate Fountain", description: "Flowing chocolate for an elegant dessert", imageUrl: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=400&q=80" },
   { id: 3, name: "Welcome Juice Live Stall", description: "Refreshing live juice bar for guests", imageUrl: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=400&q=80" },
   { id: 4, name: "Ice Cream", description: "Premium ice cream stations", imageUrl: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=400&q=80" },
-  { id: 5, name: "Pani Puri", description: "Live chat station with fresh Pani Puri", imageUrl: "https://images.unsplash.com/photo-1594220023363-2280d0d48a04?auto=format&fit=crop&w=400&q=80" },
-  { id: 6, name: "Smoke Effect For Couple Entry", description: "Magical low smoke effect for a grand entry", imageUrl: "https://images.unsplash.com/photo-1621932313620-1a7427183ca6?auto=format&fit=crop&w=400&q=80" },
+  { id: 5, name: "Pani Puri", description: "Live street food station with fresh Pani Puri", imageUrl: "https://images.unsplash.com/photo-1626776876729-bab4369a5a5a?auto=format&fit=crop&w=400&q=80" },
+  { id: 6, name: "Smoke Effect For Couple Entry", description: "Magical low smoke effect for a grand entry", imageUrl: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=400&q=80" },
   { id: 7, name: "DJ Music & 360 Selfie Booth", description: "High energy music and interactive selfie experiences", imageUrl: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80" },
   { id: 8, name: "Photography & Coverage", description: "Professional photo and video coverage", imageUrl: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" },
 ];

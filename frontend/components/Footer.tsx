@@ -11,7 +11,7 @@ export function Footer() {
         <div className="space-y-4">
           <div>
             <div className="mb-4 bg-white/10 inline-block p-2 rounded-xl backdrop-blur-sm">
-               <img src="/logo.jpeg" alt="Naam Event Logo" className="h-16 w-auto object-contain" />
+               <img src="/logo.png" alt="Naam Event Logo" className="h-16 w-auto object-contain" />
             </div>
             <p className="mt-2 max-w-md text-sm leading-7 text-pink-100">
               Unforgettable moments, spectacular events. We deliver comprehensive event management with 40+ stalls, premium photography, and spectacular entries for weddings and celebrations!

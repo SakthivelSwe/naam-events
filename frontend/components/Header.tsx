@@ -20,7 +20,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-brand-border bg-white/95 backdrop-blur">
       <div className="container-shell flex h-28 items-center justify-between">
         <Link href="/" className="flex flex-col">
-          <img src="/logo.jpeg" alt="Naam Event Logo" className="h-24 w-auto object-contain" />
+          <img src="/logo.png" alt="Naam Event Logo" className="h-24 w-auto object-contain" />
         </Link>
 
         <button
