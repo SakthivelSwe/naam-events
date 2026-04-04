@@ -18,15 +18,15 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-brand-border bg-white/95 backdrop-blur">
-      <div className="container-shell flex h-20 items-center justify-between">
+      <div className="container-shell flex h-28 items-center justify-between">
         <Link href="/" className="flex flex-col">
-          <img src="/logo.jpeg" alt="Naam Event Logo" className="h-16 w-auto object-contain" />
+          <img src="/logo.jpeg" alt="Naam Event Logo" className="h-24 w-auto object-contain" />
         </Link>
 
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="rounded-full border border-brand-border px-4 py-2 text-sm font-semibold text-brand-primary md:hidden"
+          className="rounded-full border border-brand-border px-4 py-2 text-sm font-semibold text-slate-700 md:hidden"
           aria-label="Toggle navigation"
         >
           Menu
@@ -41,7 +41,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={`text-sm font-semibold transition ${
-                  active ? "text-brand-accent" : "text-brand-primary hover:text-brand-accent"
+                  active ? "text-brand-primary" : "text-slate-800 hover:text-brand-primary"
                 }`}
               >
                 {item.label}
@@ -62,7 +62,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className={`text-sm font-semibold ${pathname === item.href ? "text-brand-accent" : "text-brand-primary"}`}
+                className={`text-sm font-semibold ${pathname === item.href ? "text-brand-primary" : "text-slate-800 hover:text-brand-primary"}`}
               >
                 {item.label}
               </Link>
