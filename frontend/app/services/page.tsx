@@ -1,55 +1,72 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { ServiceCard } from "@/components/ServiceCard";
 import { getServices } from "@/lib/api";
 
-export const runtime = 'edge';
-
 const ALL_SERVICES = [
-  { id: 1,  name: "Complete Wedding Package",    description: "Grand couple entry, DJ, photography, and all premium stalls bundled for your perfect day.", imageUrl: "https://images.unsplash.com/photo-1654156577076-e0350ba86cc1?auto=format&fit=crop&w=600&q=80", category: "Wedding" },
-  { id: 2,  name: "DJ Music",                    description: "High-energy professional DJ for non-stop celebrations all night long.", imageUrl: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80", category: "Entertainment" },
-  { id: 3,  name: "360° Selfie Booth",           description: "Interactive slow-motion video booth for unforgettable memories.", imageUrl: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80", category: "Entertainment" },
-  { id: 4,  name: "Smoke Effect Entry",          description: "Magical low-lying fog for a cinematic couple entrance.", imageUrl: "https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=600&q=80", category: "Entry Effects" },
-  { id: 5,  name: "Cold Fire Entry",             description: "Sparkling cold pyro columns lining the couple's grand entry path.", imageUrl: "https://images.unsplash.com/photo-1555447405-057915b40299?auto=format&fit=crop&w=600&q=80", category: "Entry Effects" },
-  { id: 6,  name: "Paper Blaster & Confetti",    description: "Burst of confetti and paper streamers for the ultimate celebration moment.", imageUrl: "https://images.unsplash.com/photo-1571983371651-221e6c0b910a?auto=format&fit=crop&w=600&q=80", category: "Entry Effects" },
+  { id: 1,  name: "Complete Wedding Package",    description: "Grand couple entry, DJ, photography, and all premium items bundled for your perfect day.", imageUrl: "https://images.unsplash.com/photo-1574017121722-2c8ead5a7e90?auto=format&fit=crop&w=600&q=80", category: "Wedding" },
+  { id: 2,  name: "DJ Music",                    description: "High-energy professional DJ setup for non-stop celebrations.", imageUrl: "https://images.unsplash.com/photo-1571266028243-3716f02d2d2e?auto=format&fit=crop&w=600&q=80", category: "Entertainment" },
+  { id: 3,  name: "360° Selfie Booth",           description: "Interactive slow-motion video booth setup with professional lighting.", imageUrl: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80", category: "Entertainment" },
+  { id: 4,  name: "Smoke Effect Entry",          description: "Magical low-lying fog for a cinematic venue aesthetic.", imageUrl: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80", category: "Entry Effects" },
+  { id: 5,  name: "Cold Fire Entry",             description: "Sparkling cold pyro columns lining the entryway.", imageUrl: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80", category: "Entry Effects" },
+  { id: 6,  name: "Paper Blaster & Confetti",    description: "Burst of confetti and paper streamers for the ultimate celebration moment.", imageUrl: "https://images.unsplash.com/photo-1603571405948-697f6c0b3c1e?auto=format&fit=crop&w=600&q=80", category: "Entry Effects" },
   { id: 7,  name: "Chocolate Fountain",          description: "Flowing Belgian chocolate cascade — an elegant crowd-pleaser.", imageUrl: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80", category: "Food Stalls" },
-  { id: 8,  name: "Popcorn & Cotton Candy",      description: "Classic fair-style treats loved by guests of all ages.", imageUrl: "https://images.unsplash.com/photo-1582885994348-18ff8eb4cb1c?auto=format&fit=crop&w=600&q=80", category: "Food Stalls" },
+  { id: 8,  name: "Popcorn & Cotton Candy",      description: "Classic fair-style treats, freshly made at live stations.", imageUrl: "https://images.unsplash.com/photo-1582885994348-18ff8eb4cb1c?auto=format&fit=crop&w=600&q=80", category: "Food Stalls" },
   { id: 9,  name: "Pani Puri Live Stall",        description: "Street food favourite, live and fresh for your event guests.", imageUrl: "https://images.unsplash.com/photo-1679934408676-73b4896063b7?auto=format&fit=crop&w=600&q=80", category: "Food Stalls" },
-  { id: 10, name: "Welcome Juice Live Stall",    description: "Refreshing live juice bar for all your guests on arrival.", imageUrl: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&q=80", category: "Food Stalls" },
+  { id: 10, name: "Welcome Juice Live Stall",    description: "Refreshing live juice bar setup for all your guests on arrival.", imageUrl: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=600&q=80", category: "Food Stalls" },
   { id: 11, name: "Ice Cream Stall",             description: "Premium ice cream stations with multiple flavours.", imageUrl: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=600&q=80", category: "Food Stalls" },
-  { id: 12, name: "Photo & Video Coverage",      description: "Professional cinematography capturing every precious moment.", imageUrl: "https://images.unsplash.com/photo-1567530331069-630c6a3926f3?auto=format&fit=crop&w=600&q=80", category: "Photography" },
-  { id: 13, name: "Balloon Decoration",          description: "Custom balloon arrangements and themed decor that transforms any venue.", imageUrl: "https://images.unsplash.com/photo-1571983371651-221e6c0b910a?auto=format&fit=crop&w=600&q=80", category: "Decor" },
-  { id: 14, name: "Floral Decoration",           description: "Fresh floral arrangements for stage, mandap, and venue decor.", imageUrl: "https://images.unsplash.com/photo-1574017121722-2c8ead5a7e90?auto=format&fit=crop&w=600&q=80", category: "Decor" },
-  { id: 15, name: "Mangala Vadyam",              description: "Traditional Nadaswaram & Thavil for auspicious wedding ceremonies.", imageUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80", category: "Entertainment" },
-  { id: 16, name: "Chenda Melam",                description: "Energetic traditional drum performance for processions and events.", imageUrl: "https://images.unsplash.com/photo-1516450137517-162bfbeb8dba?auto=format&fit=crop&w=600&q=80", category: "Entertainment" },
+  { id: 12, name: "Photo & Video Cameras",       description: "Professional cinematography gears capturing every precious moment.", imageUrl: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=600&q=80", category: "Photography" },
+  { id: 13, name: "Balloon Decoration",          description: "Custom balloon arrangements and themed decor that transforms any venue.", imageUrl: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80", category: "Decor" },
+  { id: 14, name: "Floral Decoration",           description: "Fresh floral arrangements for stage, mandap, and venue decor.", imageUrl: "https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=600&q=80", category: "Decor" },
+  { id: 15, name: "Mangala Vadyam",              description: "Traditional Nadaswaram & Thavil instruments for auspicious ceremonies.", imageUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80", category: "Entertainment" },
+  { id: 16, name: "Traditional Melam",           description: "Energetic traditional drum sets for processions and events.", imageUrl: "https://images.unsplash.com/photo-1516450137517-162bfbeb8dba?auto=format&fit=crop&w=600&q=80", category: "Entertainment" },
 ];
 
 const CATEGORIES = ["All", "Wedding", "Entertainment", "Entry Effects", "Food Stalls", "Photography", "Decor"];
 
-export default async function ServicesPage() {
-  // We load from backend but fall back to our static list if empty
-  let services = ALL_SERVICES;
-  try {
-    const backendServices = await getServices();
-    if (backendServices && backendServices.length > 0) {
-      services = backendServices as typeof ALL_SERVICES;
+export default function ServicesPage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [services, setServices] = useState(ALL_SERVICES);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const backendServices = await getServices();
+        if (backendServices && backendServices.length > 0) {
+          setServices(backendServices as typeof ALL_SERVICES);
+        }
+      } catch {
+        // fallback to static ALL_SERVICES
+      }
     }
-  } catch {
-    // use static list
-  }
+    load();
+  }, []);
+
+  const filteredServices = activeCategory === "All"
+    ? services
+    : services.filter(s => s.category === activeCategory);
 
   return (
     <div>
       {/* ── Page Hero ── */}
       <section
         className="relative overflow-hidden py-28 lg:py-36"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1654157085616-cd80ec5fca2f?auto=format&fit=crop&w=1920&q=85')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/20 via-transparent to-transparent" />
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1574017121722-2c8ead5a7e90?auto=format&fit=crop&w=1920&q=85')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "saturate(1.1) brightness(0.7) blur(4px)",
+            transform: "scale(1.05)" // Prevents white edges when blurring
+          }}
+        />
+        <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-brand-primary/20 via-transparent to-transparent" />
+        
         <div className="container-shell relative z-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-white backdrop-blur-sm">
             <span className="h-2 w-2 rounded-full bg-brand-primary animate-pulse" />
@@ -70,27 +87,37 @@ export default async function ServicesPage() {
       {/* ── Services Grid ── */}
       <section className="section-space bg-white">
         <div className="container-shell space-y-12">
-          {/* Category filter pills */}
+          {/* Category filter pills - NOW INTERACTIVE */}
           <div className="flex flex-wrap gap-3">
             {CATEGORIES.map((cat) => (
-              <span
+              <button
                 key={cat}
+                type="button"
+                onClick={() => setActiveCategory(cat)}
                 className={`rounded-full px-5 py-2 text-sm font-semibold border transition cursor-pointer ${
-                  cat === "All"
-                    ? "bg-brand-primary text-white border-brand-primary"
-                    : "border-brand-border text-slate-700 hover:border-brand-primary hover:text-brand-primary"
+                  cat === activeCategory
+                    ? "bg-brand-primary text-white border-brand-primary shadow-md shadow-brand-primary/30 scale-105"
+                    : "border-brand-border text-slate-700 hover:border-brand-primary hover:text-brand-primary bg-white"
                 }`}
               >
                 {cat}
-              </span>
+              </button>
             ))}
           </div>
 
           {/* Grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {services.map((service, i) => (
-              <ServiceCard key={service.id} service={service} />
-            ))}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-h-[400px]">
+            {filteredServices.length > 0 ? (
+              filteredServices.map((service, i) => (
+                <div key={service.id} className="animate-in fade-in zoom-in duration-300">
+                  <ServiceCard service={service} />
+                </div>
+              ))
+            ) : (
+              <div className="col-span-full py-12 text-center text-slate-500">
+                No services found for this category.
+              </div>
+            )}
           </div>
 
           {/* CTA */}

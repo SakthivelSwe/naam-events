@@ -35,16 +35,18 @@ export default function GalleryPage() {
 
   return (
     <div>
-      {/* ── Page Hero ── */}
-      <section
-        className="relative overflow-hidden py-28 lg:py-36"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1654156577076-e0350ba86cc1?auto=format&fit=crop&w=1920&q=85')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
+      <section className="relative overflow-hidden py-28 lg:py-36">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1654156577076-e0350ba86cc1?auto=format&fit=crop&w=1920&q=85')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "saturate(1.1) brightness(0.7) blur(6px)",
+            transform: "scale(1.05)"
+          }}
+        />
+        <div className="absolute inset-0 z-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20" />
         <div className="container-shell relative z-10">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.25em] text-white backdrop-blur-sm">
             <span className="h-2 w-2 rounded-full bg-brand-primary animate-pulse" />

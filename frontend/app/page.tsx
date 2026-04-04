@@ -28,7 +28,7 @@ const FEATURED_SERVICES = [
     id: 1, span: "lg:col-span-2 lg:row-span-2",
     name: "Complete Wedding Package",
     description: "Grand couple entry, DJ, photography, and all premium stalls bundled for your perfect day.",
-    imageUrl: "https://images.unsplash.com/photo-1654156577076-e0350ba86cc1?auto=format&fit=crop&w=800&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1574017121722-2c8ead5a7e90?auto=format&fit=crop&w=800&q=80",
     tag: "Most Popular"
   },
   {
@@ -96,7 +96,8 @@ export default async function HomePage() {
             backgroundImage: "url('https://images.unsplash.com/photo-1654156577076-e0350ba86cc1?auto=format&fit=crop&w=1920&q=90')",
             backgroundSize: "cover",
             backgroundPosition: "center",
-            filter: "saturate(1.1) brightness(0.85)"
+            filter: "saturate(1.1) brightness(0.7) blur(8px)",
+            transform: "scale(1.05)"
           }}
         />
         {/* Scrim: dark gradient bottom-to-top for text legibility */}
@@ -298,16 +299,19 @@ export default async function HomePage() {
       </section>
 
       {/* ─── TESTIMONIALS: Glassmorphism cards over rich background ─── */}
-      <section
-        className="relative section-space overflow-hidden"
-        style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1726068449701-4e11c5d64b11?auto=format&fit=crop&w=1920&q=80')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed"
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
+      <section className="relative section-space overflow-hidden">
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1726068449701-4e11c5d64b11?auto=format&fit=crop&w=1920&q=80')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundAttachment: "fixed",
+            filter: "blur(6px) brightness(0.6)",
+            transform: "scale(1.05)"
+          }}
+        />
+        <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/70 via-black/60 to-black/80" />
         <div className="container-shell relative z-10 space-y-14">
           <div className="text-center">
             <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand-primary">Testimonials</p>
