@@ -28,7 +28,7 @@ const FEATURED_SERVICES = [
     id: 1, span: "lg:col-span-2 lg:row-span-2",
     name: "Complete Wedding Package",
     description: "Grand couple entry, DJ, photography, and all premium stalls bundled for your perfect day.",
-    imageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=85",
+    imageUrl: "https://images.unsplash.com/photo-1654156577076-e0350ba86cc1?auto=format&fit=crop&w=800&q=80",
     tag: "Most Popular"
   },
   {
@@ -42,21 +42,21 @@ const FEATURED_SERVICES = [
     id: 3, span: "lg:col-span-1",
     name: "Smoke Effect Entry",
     description: "Magical low-lying fog for a cinematic couple entrance.",
-    imageUrl: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=600&q=80",
     tag: "Signature"
   },
   {
     id: 4, span: "lg:col-span-1",
     name: "Live Food Counters",
     description: "Pani Puri, Popcorn, Cotton Candy, Masala Soda & more — live stations your guests will love.",
-    imageUrl: "https://images.unsplash.com/photo-1626776876729-bab4369a5a5a?auto=format&fit=crop&w=600&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1679934408676-73b4896063b7?auto=format&fit=crop&w=600&q=80",
     tag: "40+ Options"
   },
   {
     id: 5, span: "lg:col-span-1",
-    name: "Chocolate Fountain",
-    description: "Flowing Belgian chocolate cascade — an elegant crowd-pleaser.",
-    imageUrl: "https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=600&q=80",
+    name: "Wedding Mandap Decor",
+    description: "Stunning floral mandap setups — the centerpiece of your auspicious ceremony.",
+    imageUrl: "https://images.unsplash.com/photo-1574017121722-2c8ead5a7e90?auto=format&fit=crop&w=600&q=80",
     tag: "Premium"
   },
   {
@@ -70,14 +70,14 @@ const FEATURED_SERVICES = [
     id: 7, span: "lg:col-span-1",
     name: "Photo & Video Coverage",
     description: "Professional cinematography capturing every precious moment.",
-    imageUrl: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80",
+    imageUrl: "https://images.unsplash.com/photo-1567530331069-630c6a3926f3?auto=format&fit=crop&w=600&q=80",
     tag: "Memories"
   },
   {
     id: 8, span: "lg:col-span-2",
-    name: "Balloon & Decoration Design",
-    description: "Custom balloon arrangements, themed decor, and stunning setups that transform any venue.",
-    imageUrl: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=800&q=80",
+    name: "Floral & Balloon Decoration",
+    description: "Custom flower arrangements, themed balloon decor that transforms any venue into a dream setting.",
+    imageUrl: "https://images.unsplash.com/photo-1571983371651-221e6c0b910a?auto=format&fit=crop&w=800&q=80",
     tag: "Decor"
   },
 ];
@@ -93,7 +93,7 @@ export default async function HomePage() {
         <div
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=90')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1654156577076-e0350ba86cc1?auto=format&fit=crop&w=1920&q=90')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             filter: "saturate(1.1) brightness(0.85)"
@@ -224,13 +224,13 @@ export default async function HomePage() {
             {/* Left: image collage */}
             <div className="relative h-[520px]">
               <img
-                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=800&q=85"
+                src="https://images.unsplash.com/photo-1654157085616-cd80ec5fca2f?auto=format&fit=crop&w=800&q=85"
                 alt="Event setup"
                 className="absolute left-0 top-0 h-80 w-[70%] rounded-3xl object-cover shadow-2xl img-branded"
               />
               <div className="absolute right-0 bottom-0 h-64 w-[60%] rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80"
+                  src="https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?auto=format&fit=crop&w=600&q=80"
                   alt="Event flowers"
                   className="img-branded h-full w-full"
                 />
@@ -301,7 +301,7 @@ export default async function HomePage() {
       <section
         className="relative section-space overflow-hidden"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1920&q=80')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1726068449701-4e11c5d64b11?auto=format&fit=crop&w=1920&q=80')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed"

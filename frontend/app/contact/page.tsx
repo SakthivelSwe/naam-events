@@ -13,7 +13,7 @@ export default function ContactPage() {
       <section
         className="relative overflow-hidden py-28 lg:py-36"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1920&q=85')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1555447405-057915b40299?auto=format&fit=crop&w=1920&q=85')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

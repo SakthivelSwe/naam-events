@@ -39,7 +39,7 @@ export default function GalleryPage() {
       <section
         className="relative overflow-hidden py-28 lg:py-36"
         style={{
-          backgroundImage: "url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1920&q=85')",
+          backgroundImage: "url('https://images.unsplash.com/photo-1654156577076-e0350ba86cc1?auto=format&fit=crop&w=1920&q=85')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
