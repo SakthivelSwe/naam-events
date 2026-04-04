@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Lora, Source_Sans_3 } from "next/font/google";
+import { Quicksand, Nunito } from "next/font/google";
 import "@/app/globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
-const sans = Source_Sans_3({
+const sans = Nunito({
   subsets: ["latin"],
   variable: "--font-sans"
 });
 
-const serif = Lora({
+const serif = Quicksand({
   subsets: ["latin"],
   variable: "--font-serif"
 });

@@ -4,11 +4,12 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #334155;
-  --primary: #1e293b;
-  --accent: #c9a227;
-  --muted: #f8fafc;
-  --border: #cbd5e1;
+  --foreground: #1f2937;
+  --primary: #e6007e;
+  --secondary: #00b0ff;
+  --accent: #ffcc00;
+  --muted: #fdf2f8;
+  --border: #fbcfe8;
 }
 
 html {
@@ -44,14 +45,14 @@ textarea {
 }
 
 .field {
-  @apply w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-sm text-brand-text transition focus:border-brand-accent;
+  @apply w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-sm text-brand-text transition focus:border-brand-primary;
 }
 
 .button-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800;
+  @apply inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-pink-700 shadow-md hover:shadow-lg;
 }
 
 .button-secondary {
-  @apply inline-flex items-center justify-center rounded-full border border-brand-accent px-6 py-3 text-sm font-semibold text-brand-primary transition hover:bg-amber-50;
+  @apply inline-flex items-center justify-center rounded-full border-2 border-brand-secondary px-6 py-3 text-sm font-semibold text-brand-secondary transition hover:bg-brand-secondary hover:text-white shadow-sm hover:shadow;
 }
 

@@ -21,34 +21,41 @@ const testimonials = [
   }
 ];
 
+const BRAND_SERVICES = [
+  { id: 1, name: "Popcorn & Cotton Candy", description: "Delicious classic party treats", imageUrl: "https://images.unsplash.com/photo-1572054687441-2c93d9b4b9fb?auto=format&fit=crop&w=400&q=80" },
+  { id: 2, name: "Chocolate Foundation", description: "Flowing chocolate for an elegant dessert", imageUrl: "https://images.unsplash.com/photo-1621217989345-3f3050c8227b?auto=format&fit=crop&w=400&q=80" },
+  { id: 3, name: "Welcome Juice Live Stall", description: "Refreshing live juice bar for guests", imageUrl: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=400&q=80" },
+  { id: 4, name: "Ice Cream", description: "Premium ice cream stations", imageUrl: "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=400&q=80" },
+  { id: 5, name: "Panni Poori", description: "Live chat station with fresh Panni Poori", imageUrl: "https://images.unsplash.com/photo-1594220023363-2280d0d48a04?auto=format&fit=crop&w=400&q=80" },
+  { id: 6, name: "Smoke Effect For Couple Entry", description: "Magical low smoke effect for a grand entry", imageUrl: "https://images.unsplash.com/photo-1621932313620-1a7427183ca6?auto=format&fit=crop&w=400&q=80" },
+  { id: 7, name: "DJ Music & 360 Selfie Booth", description: "High energy music and interactive selfie experiences", imageUrl: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80" },
+  { id: 8, name: "Photography & Coverage", description: "Professional photo and video coverage", imageUrl: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=400&q=80" },
+];
+
 export default async function HomePage() {
-  const [services, gallery] = await Promise.all([getServices(), getGallery()]);
+  const [, gallery] = await Promise.all([getServices(), getGallery()]);
+  const services = BRAND_SERVICES;
 
   return (
     <div>
       <section
-        className="relative isolate overflow-hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1600&q=80')",
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}
+        className="relative isolate overflow-hidden bg-brand-muted"
       >
-        <div className="container-shell py-24 sm:py-32">
-          <div className="max-w-3xl space-y-6 text-white">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-brand-accent">Professional Event Management</p>
-            <h1 className="font-serif text-4xl font-semibold leading-tight sm:text-6xl">
-              Thoughtful event planning that feels polished, calm, and client-focused.
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-100 via-transparent to-blue-50 opacity-70"></div>
+        <div className="container-shell py-24 sm:py-32 relative z-10">
+          <div className="max-w-3xl space-y-6 text-slate-800">
+            <p className="text-sm font-bold uppercase tracking-[0.28em] text-brand-primary">Premier Event Management</p>
+            <h1 className="font-serif text-5xl font-bold leading-tight sm:text-7xl text-brand-primary">
+              Unforgettable Moments,<br/> Spectacular Events!
             </h1>
-            <p className="max-w-2xl text-lg leading-8 text-slate-200">
-              NaamEvent delivers weddings, private celebrations, and corporate gatherings with careful planning, clear communication, and dependable execution.
+            <p className="max-w-2xl text-xl leading-8 text-slate-600">
+              NaamEvent delivers spectacular weddings, private celebrations, and corporate gatherings with over 40+ specialized stalls, welcome entries, and flawless execution.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/booking" className="button-primary bg-brand-accent text-brand-primary hover:bg-amber-400">
+            <div className="flex flex-col gap-4 sm:flex-row pt-4">
+              <Link href="/booking" className="button-primary text-lg px-8">
                 Request a Quote
               </Link>
-              <Link href="/services" className="button-secondary border-white text-white hover:bg-white/10">
+              <Link href="/services" className="button-secondary text-lg px-8">
                 Explore Services
               </Link>
             </div>
@@ -60,9 +67,9 @@ export default async function HomePage() {
         <div className="container-shell space-y-10">
           <div className="flex items-end justify-between gap-4">
             <SectionHeading
-              eyebrow="Services"
-              title="Planning support built around the kind of event you are hosting."
-              description="From intimate family celebrations to corporate gatherings, our team focuses on coordination, presentation, and guest comfort."
+              eyebrow="Our Services"
+              title="We provide exactly what you need to make your party unforgettable."
+              description="From Live Food Counters to 360 Selfie Booths and Special Couple Entries, we handle it all so you can enjoy your celebration!"
             />
             <Link href="/services" className="hidden text-sm font-semibold text-brand-primary hover:text-brand-accent md:block">
               View all services
@@ -97,8 +104,8 @@ export default async function HomePage() {
           <div className="space-y-6">
             <SectionHeading
               eyebrow="About NaamEvent"
-              title="A dependable partner for events that need both warmth and precision."
-              description="We work closely with clients to simplify planning, coordinate vendors, manage timelines, and deliver events that feel intentional rather than overwhelming."
+              title="A dedicated partner for events filled with joy and spectacular colors."
+              description="With over 40+ unique services including DJ music, Mangala Vadyam, Cotton Candy stalls, and Photo coverage, we guarantee a stress-free and magical experience for your guests."
             />
             <Link href="/contact" className="button-secondary">
               Speak with our team
@@ -121,14 +128,13 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="section-space bg-brand-primary">
+      <section className="section-space bg-gradient-to-r from-brand-secondary to-[#80d8ff] text-white">
         <div className="container-shell space-y-10">
-          <SectionHeading
-            eyebrow="Testimonials"
-            title="Clients trust us with milestones that matter."
-            description="Our approach stays grounded in communication, clarity, and smooth event delivery."
-            align="center"
-          />
+          <div className="text-center space-y-4">
+              <p className="text-sm font-bold uppercase tracking-[0.2em] text-white/90">Testimonials</p>
+              <h2 className="font-serif text-4xl font-semibold">Clients trust us with milestones that matter.</h2>
+              <p className="max-w-2xl mx-auto text-lg text-white/90">Our approach stays grounded in communication, clarity, and smooth event delivery.</p>
+          </div>
           <div className="grid gap-6 lg:grid-cols-3">
             {testimonials.map((testimonial) => (
               <article key={testimonial.name} className="rounded-2xl border border-white/10 bg-white/5 p-6 text-slate-200">

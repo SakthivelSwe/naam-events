@@ -10,12 +10,14 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary: "#1E293B",
-          accent: "#C9A227",
+          primary: "#e6007e", // Vibrant Pink
+          secondary: "#00b0ff", // Light Blue
+          accent: "#ffcc00", // Yellow/Gold
+          dark: "#111827",
           background: "#FFFFFF",
-          text: "#334155",
-          muted: "#F8FAFC",
-          border: "#CBD5E1"
+          text: "#1f2937",
+          muted: "#fdf2f8", // Light pink background
+          border: "#fbcfe8"
         }
       },
       fontFamily: {
