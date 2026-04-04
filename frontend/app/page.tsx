@@ -4,6 +4,8 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { getGallery, getServices } from "@/lib/api";
 
+export const runtime = 'edge';
+
 const testimonials = [
   {
     name: "Priya & Rohit",

@@ -2,6 +2,8 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { getServices } from "@/lib/api";
 
+export const runtime = 'edge';
+
 export default async function ServicesPage() {
   const services = await getServices();
 
