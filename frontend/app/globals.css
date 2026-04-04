@@ -32,27 +32,68 @@ textarea {
   outline: none;
 }
 
+/* ── Layout Utilities ── */
 .container-shell {
   @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
+/* Generous 2026-standard vertical spacing */
 .section-space {
-  @apply py-16 sm:py-20;
+  @apply py-24 sm:py-32 lg:py-40;
 }
 
+/* ── Card Variants ── */
 .card-surface {
-  @apply rounded-2xl border border-brand-border bg-white shadow-card;
+  @apply rounded-3xl border border-brand-border bg-white shadow-card;
 }
 
+/* Glassmorphism card */
+.card-glass {
+  @apply rounded-3xl border border-white/20 bg-white/10 shadow-xl;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Warm color-grade tint on all stock images for brand cohesion */
+.img-branded {
+  @apply h-full w-full object-cover;
+  filter: saturate(1.15) brightness(0.97);
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+.img-branded:hover {
+  transform: scale(1.06);
+  filter: saturate(1.25) brightness(1.02);
+}
+
+/* ── Form Fields ── */
 .field {
-  @apply w-full rounded-xl border border-brand-border bg-white px-4 py-3 text-sm text-brand-text transition focus:border-brand-primary;
+  @apply w-full rounded-xl border border-brand-border bg-white px-4 py-3.5 text-sm text-brand-text transition focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/20;
 }
 
+/* ── Buttons ── */
 .button-primary {
-  @apply inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-pink-700 shadow-md hover:shadow-lg;
+  @apply inline-flex items-center justify-center rounded-full bg-brand-primary px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-pink-700 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
 }
 
 .button-secondary {
-  @apply inline-flex items-center justify-center rounded-full border-2 border-pink-200 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-brand-primary hover:text-brand-primary shadow-sm hover:shadow;
+  @apply inline-flex items-center justify-center rounded-full border-2 border-pink-200 px-7 py-3.5 text-sm font-semibold text-slate-700 transition-all duration-300 hover:border-brand-primary hover:text-brand-primary shadow-sm hover:shadow hover:-translate-y-0.5;
 }
 
+/* ── Scroll Fade-in Animation ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+[data-animate] {
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+/* Stagger delays for children */
+[data-animate-delay="1"] { animation-delay: 0.1s; }
+[data-animate-delay="2"] { animation-delay: 0.2s; }
+[data-animate-delay="3"] { animation-delay: 0.3s; }
+[data-animate-delay="4"] { animation-delay: 0.4s; }
+[data-animate-delay="5"] { animation-delay: 0.5s; }
+[data-animate-delay="6"] { animation-delay: 0.6s; }

@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Quicksand, Nunito } from "next/font/google";
+import { Playfair_Display, DM_Sans } from "next/font/google";
 import "@/app/globals.css";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 
-const sans = Nunito({
+const sans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-sans"
 });
 
-const serif = Quicksand({
+const serif = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-serif"
 });

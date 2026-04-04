@@ -25,7 +25,8 @@ const config: Config = {
         serif: ["var(--font-serif)"]
       },
       boxShadow: {
-        card: "0 18px 40px rgba(15, 23, 42, 0.08)"
+        card: "0 20px 48px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.04)",
+        glow: "0 0 40px rgba(230, 0, 126, 0.25)"
       }
     }
   },
