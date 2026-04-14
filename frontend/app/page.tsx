@@ -49,7 +49,7 @@ const FEATURED_SERVICES = [
     id: 4, span: "lg:col-span-1",
     name: "Live Food Counters",
     description: "Pani Puri, Popcorn, Cotton Candy, Masala Soda & more — live stations your guests will love.",
-    imageUrl: "/pani-puri.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
     tag: "40+ Options"
   },
   {
