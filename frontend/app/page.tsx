@@ -48,8 +48,8 @@ const FEATURED_SERVICES = [
   {
     id: 4, span: "lg:col-span-1",
     name: "Live Food Counters",
-    description: "Pani Puri, Popcorn, Cotton Candy, Masala Soda & more — live stations your guests will love.",
-    imageUrl: "https://images.unsplash.com/photo-1679934408676-73b4896063b7?auto=format&fit=crop&w=600&q=80",
+    description: "Traditional Banana Leaf Feast, Live Dosa Stations, Filter Coffee & more — flavors your guests will love.",
+    imageUrl: "https://images.unsplash.com/photo-1514222709107-a180c68d72b4?auto=format&fit=crop&w=600&q=80",
     tag: "40+ Options"
   },
   {
